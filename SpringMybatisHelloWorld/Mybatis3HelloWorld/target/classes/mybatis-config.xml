@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 引入外部的properties配置文件 -->
+	<properties resource="mybatis-config.properties" />
+
+	<typeAliases>
+		<package name="com.ltcui.student"/>
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				 <!-- 数据库基本信息配置 -->
+		         <property name="driver" value="${connect.oracle.driverClassName}" /> 
+		         <property name="url" value="${connect.oracle.url}" />  
+		         <property name="username" value="${connect.oracle.username}" />  
+		         <property name="password" value="${connect.oracle.password}" />  
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!-- 指定引入单个mapper.xml文件 -->
+		<!-- <mapper resource="com.ltcui.student.dao.studentMapper.xml"/> -->
+		<!-- 自动查找指定目录下的所有mapper.xml文件 -->
+		<package name="com.ltcui"/>
+	</mappers>
+</configuration>
+
